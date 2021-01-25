@@ -1,0 +1,17 @@
+body{
+    background-size:cover;
+}
+.heading
+{
+font-size: 23px;
+width: 100%;
+margin: 0px;
+}
+
+#status,#No.of_objects_detected{
+font-size: 28px;
+}
+canvas{
+    border: 10px solid rebeccapurple;
+    margin-top:30px;
+}
