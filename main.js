@@ -43,12 +43,14 @@ function draw(){
                 document.getElementById("status").innerHTML="Status:Baby Found";
                 Baby_found_audio.play();
                 Baby_not_found_audio.stop();
+                Baby_found_audio.setVolume(0.1);
            }else{
                 document.getElementById("status").innerHTML="Status:Baby Not Found";
                 Baby_not_found_audio.play();
                 Baby_found_audio.stop();
+                Baby_not_found_audio.setVolume(0.1);
              }
-            document.getElementById("No.of_objects_detected").innerHTML="No of Objects detected:"+objects.length;
+            document.getElementById("No_of_objects_detected").innerHTML="No of Objects detected:"+objects.length;
         }
     }
 }
