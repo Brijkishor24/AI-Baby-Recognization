@@ -1,5 +1,5 @@
 status="";
-/*objects=[];*/
+objects=[];
 Baby_found_audio="";
 Baby_not_found_audio="";
 function preload(){
@@ -25,8 +25,8 @@ function getResult(error,results){
        console.log(error);
    }else{
        console.log(results);
-      /* objects=results;
-       console.log(objects);*/
+       objects=results;
+       console.log(objects);
     }
 }
 function draw(){
@@ -38,16 +38,17 @@ function draw(){
         objectDetector.detect(video,getResult);
         for(i=0;i<objects.length;i++){
             document.getElementById("status").innerHTML="Status:Object Detected";
+           if(objects[i].label=="person"){
+            
+                document.getElementById("status").innerHTML="Status:Baby Found";
+                Baby_found_audio.play();
+                Baby_not_found_audio.stop();
+           }else{
+                document.getElementById("status").innerHTML="Status:Baby Not Found";
+                Baby_not_found_audio.play();
+                Baby_found_audio.stop();
+             }
             document.getElementById("No.of_objects_detected").innerHTML="No of Objects detected:"+objects.length;
         }
-    }
-    if(status==true){
-        document.getElementById("status").innerHTML="Status:Baby Found";
-        Baby_found_audio.play();
-        Baby_not_found_audio.stop();
-    }else if(status==false){
-        document.getElementById("status").innerHTML="Status:Baby Not Found";
-        Baby_not_found_audio.play();
-        Baby_found_audio.stop();
     }
 }
